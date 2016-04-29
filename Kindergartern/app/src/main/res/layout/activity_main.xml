@@ -5,11 +5,65 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        tools:context="com.junbaole.kindergartern.presentation.MainActivity">
+        tools:context=".presentation.main.MainActivity">
 
+        <RadioGroup
+            android:id="@+id/main_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/tab1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:button="@null"
+                android:gravity="center"
+                android:minHeight="45dp" />
+
+            <RadioButton
+                android:id="@+id/tab2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:button="@null"
+                android:gravity="center"
+                android:minHeight="45dp" />
+
+            <RadioButton
+                android:id="@+id/tab3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:button="@null"
+                android:gravity="center"
+                android:minHeight="45dp" />
+
+            <RadioButton
+                android:id="@+id/tab4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:button="@null"
+                android:gravity="center"
+                android:minHeight="45dp" />
+
+            <RadioButton
+                android:id="@+id/tab5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:button="@null"
+                android:gravity="center"
+                android:minHeight="45dp" />
+        </RadioGroup>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/main_tabs"></android.support.v4.view.ViewPager>
     </RelativeLayout>
 </layout>
