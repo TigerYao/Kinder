@@ -12,6 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:gravity="bottom"
             android:orientation="horizontal">
 
             <RadioButton
@@ -19,45 +20,74 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
+                android:background="@drawable/ripple_item_selector"
                 android:button="@null"
-                android:gravity="center"
-                android:minHeight="45dp" />
+                android:textSize="14sp"
+                android:textColor="#000"
+                android:text="照片"
+                android:paddingBottom="10dp"
+                android:layout_gravity="bottom"
+                android:gravity="center|bottom"
+                android:minHeight="40dp" />
 
             <RadioButton
                 android:id="@+id/tab2"
+                android:textSize="14sp"
+                android:textColor="#000"
+                android:text="照片"
+                android:paddingBottom="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
+                android:background="@drawable/ripple_item_selector"
                 android:button="@null"
-                android:gravity="center"
-                android:minHeight="45dp" />
+                android:layout_gravity="bottom"
+                android:gravity="center|bottom"
+                android:minHeight="40dp" />
 
             <RadioButton
                 android:id="@+id/tab3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.0"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/ring_shape"
                 android:button="@null"
-                android:gravity="center"
-                android:minHeight="45dp" />
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:text="照片"
+                android:paddingBottom="10dp"
+                android:layout_gravity="bottom"
+                android:gravity="center|bottom"
+                android:minHeight="40dp" />
 
             <RadioButton
+                android:textSize="14sp"
+                android:textColor="#000"
+                android:text="照片"
+                android:paddingBottom="10dp"
+                android:layout_gravity="bottom"
                 android:id="@+id/tab4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
+                android:background="@drawable/ripple_item_selector"
                 android:button="@null"
-                android:gravity="center"
-                android:minHeight="45dp" />
+                android:gravity="center|bottom"
+                android:minHeight="40dp" />
 
             <RadioButton
+                android:textSize="14sp"
+                android:textColor="#000"
+                android:text="照片"
+                android:paddingBottom="10dp"
+                android:layout_gravity="bottom"
                 android:id="@+id/tab5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
+                android:background="@drawable/ripple_item_selector"
                 android:button="@null"
-                android:gravity="center"
-                android:minHeight="45dp" />
+                android:gravity="center|bottom"
+                android:minHeight="40dp" />
         </RadioGroup>
 
         <android.support.v4.view.ViewPager
