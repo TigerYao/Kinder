@@ -1,25 +1,26 @@
 package com.junbaole.kindergartern.presentation.main;
 
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.RadioGroup;
 
 import com.junbaole.kindergartern.R;
 import com.junbaole.kindergartern.databinding.ActivityMainBinding;
-import com.junbaole.kindergartern.presentation.base.BaseActivity;
+import com.junbaole.kindergartern.presentation.base.BaseFragmentActivity;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseFragmentActivity {
 
     ActivityMainBinding mainBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        onAfterCreate();
         mainBinding.mainTabs.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId){
+                switch (checkedId) {
                     case R.id.tab1:
                         break;
                     case R.id.tab2:
@@ -33,5 +34,16 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+
+    @Override
+    public int getFragmentContentId() {
+        return R.id.fragment_container;
+    }
+
+    @Override
+    protected BaseFragment getFirstFragment() {
+        return null;
     }
 }

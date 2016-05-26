@@ -12,10 +12,14 @@ import com.junbaole.kindergartern.presentation.base.BaseActivity;
  */
 public class LoginActivity extends BaseActivity  {
     private ActivityLoginBinding loginBinding;
+    private LoginClickHandler clickHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         loginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        clickHandler = new LoginClickHandler();
+        clickHandler.mActivity = this;
+        loginBinding.setClickHandler(clickHandler);
     }
 }
 
