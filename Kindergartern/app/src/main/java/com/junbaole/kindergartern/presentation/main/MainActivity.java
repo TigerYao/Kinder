@@ -6,6 +6,7 @@ import android.widget.RadioGroup;
 
 import com.junbaole.kindergartern.R;
 import com.junbaole.kindergartern.databinding.ActivityMainBinding;
+import com.junbaole.kindergartern.presentation.base.BaseFragment;
 import com.junbaole.kindergartern.presentation.base.BaseFragmentActivity;
 
 public class MainActivity extends BaseFragmentActivity {

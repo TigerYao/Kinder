@@ -1,16 +1,22 @@
 package com.junbaole.kindergartern.presentation.register;
 
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.junbaole.kindergartern.R;
+import com.junbaole.kindergartern.databinding.ActivityRegisterBinding;
 import com.junbaole.kindergartern.presentation.base.BaseActivity;
 
 public class RegisterActivity extends BaseActivity {
 
+    private ActivityRegisterBinding registerBinding;
+    private RegisterClickHandler clickHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        registerBinding = DataBindingUtil.setContentView(this,R.layout.activity_register);
+        clickHandler = new RegisterClickHandler();
+        registerBinding.setClickHandler(clickHandler);
     }
 }
