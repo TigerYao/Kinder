@@ -1,14 +1,13 @@
 package com.junbaole.kindergartern.presentation.register;
 
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.junbaole.kindergartern.R;
 import com.junbaole.kindergartern.databinding.ActivityRegisterBinding;
 import com.junbaole.kindergartern.presentation.base.BaseActivity;
 
-public class RegisterActivity extends BaseActivity {
+public class Register3Activity extends BaseActivity {
 
     private ActivityRegisterBinding registerBinding;
     private RegisterClickHandler clickHandler;

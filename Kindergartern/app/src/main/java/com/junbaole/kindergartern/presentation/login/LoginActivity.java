@@ -21,7 +21,7 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         loginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login);
-        clickHandler = new LoginClickHandler();
+        clickHandler = new LoginClickHandler(this);
         clickHandler.mActivity = this;
         loginBinding.setClickHandler(clickHandler);
         loginBinding.displayPsw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

@@ -29,6 +29,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.register.RegisterActivity"></activity>
+        <activity android:name=".presentation.register.Register2Activity"></activity>
+        <activity android:name=".presentation.register.Register3Activity"></activity>
     </application>
 
 </manifest>

@@ -2,7 +2,6 @@ package com.junbaole.kindergartern.presentation.launcher;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.view.WindowManager;
 
 import com.junbaole.kindergartern.R;
 import com.junbaole.kindergartern.databinding.ActivityLauncherBinding;
