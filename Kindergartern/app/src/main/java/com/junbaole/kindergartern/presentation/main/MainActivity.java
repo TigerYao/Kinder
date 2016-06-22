@@ -8,6 +8,7 @@ import com.junbaole.kindergartern.R;
 import com.junbaole.kindergartern.databinding.ActivityMainBinding;
 import com.junbaole.kindergartern.presentation.base.BaseFragment;
 import com.junbaole.kindergartern.presentation.base.BaseFragmentActivity;
+import com.junbaole.kindergartern.presentation.home.HomeFragment;
 
 public class MainActivity extends BaseFragmentActivity {
 
@@ -38,6 +39,8 @@ public class MainActivity extends BaseFragmentActivity {
     }
 
 
+
+
     @Override
     public int getFragmentContentId() {
         return R.id.fragment_container;
@@ -45,6 +48,6 @@ public class MainActivity extends BaseFragmentActivity {
 
     @Override
     protected BaseFragment getFirstFragment() {
-        return null;
+        return  HomeFragment.newInstance("HomeFragment","HomeFragment");
     }
 }

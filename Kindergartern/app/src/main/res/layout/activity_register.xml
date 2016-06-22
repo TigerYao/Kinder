@@ -3,9 +3,16 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="clickHandler"
             type="com.junbaole.kindergartern.presentation.register.RegisterClickHandler" />
+
+        <variable
+            name="isRight"
+            type="boolean" />
+
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,6 +28,11 @@
             layout="@layout/titlebar_layout"
             bind:clickHandler="@{clickHandler}" />
 
-        <include layout="@layout/fragment_register_step_one" />
+        <include
+            android:id="@+id/phoneNum"
+            layout="@layout/fragment_register_step_one"
+            bind:clickHandler="@{clickHandler}"
+            bind:isRight="@{isRight}" />
+
     </LinearLayout>
 </layout>

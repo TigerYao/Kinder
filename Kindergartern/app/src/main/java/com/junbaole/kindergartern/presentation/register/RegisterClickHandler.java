@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.junbaole.kindergartern.data.utils.activity.SkipActivityUtils;
 import com.junbaole.kindergartern.presentation.base.BaseTitleClickHandler;
+import com.junbaole.kindergartern.presentation.main.MainActivity;
 
 /**
  * Created by liangrenwang on 16/6/2.
@@ -25,6 +26,6 @@ public class RegisterClickHandler extends BaseTitleClickHandler {
     }
 
     public void onClickFinish(View view) {
-
+        SkipActivityUtils.startActivity(mActivity, view, "", new Intent(mActivity, MainActivity.class));
     }
 }
