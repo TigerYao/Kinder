@@ -2,10 +2,16 @@
 <layout>
 
     <data>
+
         <variable
             name="sendMessage"
-            type="com.junbaole.kindergartern.data.model.SendMessageInfo"/>
+            type="com.junbaole.kindergartern.data.model.SendMessageInfo" />
+
+        <variable
+            name="clickHandler"
+            type="com.junbaole.kindergartern.presentation.send.SendClickHandler" />
     </data>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -18,13 +24,13 @@
             layout="@layout/titlebar_layout" />
 
         <EditText
-            android:text="@{sendMessage.message}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
             android:gravity="left"
             android:hint="写下这一刻的想法"
-            android:minLines="4" />
+            android:minLines="4"
+            android:text="@{sendMessage.message}" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/img_list"
@@ -33,8 +39,37 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/ripple_item_selector"
+                android:drawableLeft="@mipmap/icon_weizhi_kong"
+                android:drawablePadding="5dp"
+                android:drawableRight="@mipmap/icon_xz_hui"
+                android:gravity="center_vertical"
+                android:onClick="@{clickHandler.onClickLocation}"
+                android:padding="12dp"
+                android:text="@string/send_msg_local_tip" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"></View>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/ripple_item_selector"
+                android:drawableLeft="@mipmap/icon_shuikeyikan"
+                android:drawablePadding="5dp"
+                android:drawableRight="@mipmap/icon_xz_hui"
+                android:gravity="center_vertical"
+                android:onClick="@{clickHandler.onClickProtect}"
+                android:padding="12dp"
+                android:text="@string/send_msg_open_tip" />
         </LinearLayout>
     </LinearLayout>
 </layout>

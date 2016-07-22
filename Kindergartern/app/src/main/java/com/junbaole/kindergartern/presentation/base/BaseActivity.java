@@ -9,13 +9,13 @@ import android.view.View;
 
 import com.junbaole.kindergartern.R;
 
+import me.zhanghai.android.materialprogressbar.MaterialProgressBar;
+
 public class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-
-
 
 }
