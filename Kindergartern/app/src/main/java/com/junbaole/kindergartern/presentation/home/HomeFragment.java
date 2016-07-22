@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.junbaole.kindergartern.R;
 import com.junbaole.kindergartern.databinding.FragmentHomeBinding;
 import com.junbaole.kindergartern.presentation.base.BaseFragment;
+import com.junbaole.kindergartern.presentation.base.TitleBuilder;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,6 +67,7 @@ public class HomeFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         homeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
+        new TitleBuilder(homeBinding.titleBar).TitleBuilderLayout(false, true).TitleBuilderLable("宝宝日记", "", "").TitleBuilderRightItem(true, false).TitleBuilderImgReasours(-1, R.mipmap.icon_xiaoxi).build();
         return homeBinding.getRoot();
     }
 

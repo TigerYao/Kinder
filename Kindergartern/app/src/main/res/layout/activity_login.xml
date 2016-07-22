@@ -18,8 +18,9 @@
         tools:context="com.junbaole.kindergartern.presentation.login.LoginActivity">
 
         <include
-            bind:clickHandler="@{clickHandler}"
-            layout="@layout/titlebar_layout" />
+            android:id="@+id/title_bar"
+            layout="@layout/titlebar_layout"
+            bind:clickHandler="@{clickHandler}" />
 
         <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->

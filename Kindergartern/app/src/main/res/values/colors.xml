@@ -52,4 +52,12 @@
     <color name="s_btn2_color_disable_bg">#f4f4f4</color>
     <color name="s_btn2_color_disable_text">#c0c0c0</color>
     <color name="map_circle_color">#66e84b2d</color>
+
+    <color name="trans">#00000000</color>
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="actionsheet_blue">#037BFF</color>
+    <color name="actionsheet_red">#FD4A2E</color>
+    <color name="actionsheet_gray">#8F8F8F</color>
+
+
 </resources>
