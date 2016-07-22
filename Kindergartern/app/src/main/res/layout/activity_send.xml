@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -21,6 +21,7 @@
 
         <include
             android:id="@+id/action_bar_title"
+            bind:clickHandler="@{clickHandler}"
             layout="@layout/titlebar_layout" />
 
         <EditText

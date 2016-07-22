@@ -13,6 +13,7 @@ import com.junbaole.kindergartern.data.utils.ActionsheetHelper;
 import com.junbaole.kindergartern.data.utils.event.ActionSheetEvent;
 import com.junbaole.kindergartern.databinding.ActivityDisplayImgsBinding;
 import com.junbaole.kindergartern.databinding.DiaplayimgItemBinding;
+import com.junbaole.kindergartern.presentation.base.TitleBuilder;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -28,6 +29,7 @@ public class DisplayImgsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mDisplayImgsBinding = DataBindingUtil.setContentView(this, R.layout.activity_display_imgs);
+        TitleBuilder titleBuilder = new TitleBuilder(mDisplayImgsBinding.titleBar).TitleBuilderLayout(true, true).TitleBuilderLeftItem(true, false).TitleBuilderRightItem(true, true).TitleBuilderImgReasours(R.mipmap.icon_fanhui, R.mipmap.icon_fenxiang).TitleBuilderTextRightDrawable(R.mipmap.icon_caidan, 0, 0, 0);
         mDisplayImgsBinding.convenientBanner.setPages(new CBViewHolderCreator<ImgViewHolder>() {
             @Override
             public ImgViewHolder createHolder() {

@@ -31,7 +31,8 @@
         <activity android:name=".presentation.register.Register2Activity" />
         <activity android:name=".presentation.register.Register3Activity" />
         <activity android:name=".presentation.send.SendActivity" />
-        <activity android:name=".presentation.send.DisplayImgsActivity"></activity>
+        <activity android:name=".presentation.send.DisplayImgsActivity" />
+        <activity android:name=".presentation.messagedetail.MessageDetailActivity"></activity>
     </application>
 
 </manifest>
