@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "24.0.0 rc2"
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "com.junbaole.kindergartern"
@@ -38,7 +38,6 @@ dependencies {
     //    compile 'cn.leancloud.android:Java-WebSocket:1.2.0-leancloud'
     //    compile 'cn.leancloud.android:avoscloud-statistics:v3.7.2@aar'
     //    compile 'cn.leancloud.android:avoscloud-search:v3.7.2@aar'
-    compile project(':android-volley')
     compile project(':convenientbanner')
     //property animation support
     //https://github.com/bumptech/glide
@@ -59,7 +58,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
-    compile 'de.greenrobot:eventbus:2.4.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.google.code.gson:gson:2.6.1'
     compile 'com.qiniu:qiniu-android-sdk:7.2.0'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
