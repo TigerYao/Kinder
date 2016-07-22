@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "24.0.0 rc2"
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "com.junbaole.kindergartern"
@@ -25,10 +25,6 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.2.1'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.android.support:design:23.3.0'
     //https://github.com/afollestad/material-dialogs
     compile('com.github.afollestad.material-dialogs:core:0.8.5.8@aar') {
         transitive = true
@@ -36,16 +32,38 @@ dependencies {
     compile('com.github.afollestad.material-dialogs:core:0.8.5.8@aar') {
         transitive = true
     }
-
     //avoscloud-sdk 为 LeanCloud基础包
-    compile 'cn.leancloud.android:avoscloud-sdk:v3.7.2'
-
-    //avoscloud-push 与 Java-WebSocket 为推送与IM需要的包
-    compile 'cn.leancloud.android:avoscloud-push:v3.7.2@aar'
-    compile 'cn.leancloud.android:Java-WebSocket:1.2.0-leancloud'
-
-    //avoscloud-statistics 为 LeanCloud 统计包
-    compile 'cn.leancloud.android:avoscloud-statistics:v3.7.2@aar'
-    //avoscloud-search 为 LeanCloud 应用内搜索包
-    compile 'cn.leancloud.android:avoscloud-search:v3.7.2@aar'
+    //    compile 'cn.leancloud.android:avoscloud-sdk:v3.7.2'
+    //    compile 'cn.leancloud.android:avoscloud-push:v3.7.2@aar'
+    //    compile 'cn.leancloud.android:Java-WebSocket:1.2.0-leancloud'
+    //    compile 'cn.leancloud.android:avoscloud-statistics:v3.7.2@aar'
+    //    compile 'cn.leancloud.android:avoscloud-search:v3.7.2@aar'
+    compile project(':convenientbanner')
+    //property animation support
+    //https://github.com/bumptech/glide
+    //https://github.com/greenrobot/EventBus
+    //https://github.com/google/gson
+    //
+    //
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //
+    compile 'com.nineoldandroids:library:2.4.0'
+    //
+    //
+    //
+    //
+    //
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.google.code.gson:gson:2.6.1'
+    compile 'com.qiniu:qiniu-android-sdk:7.2.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'io.reactivex:rxjava:1.1.6'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'io.reactivex:rxandroid:1.2.1'
 }
