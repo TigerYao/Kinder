@@ -27,9 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.register.RegisterActivity"></activity>
-        <activity android:name=".presentation.register.Register2Activity"></activity>
-        <activity android:name=".presentation.register.Register3Activity"></activity>
+        <activity android:name=".presentation.register.RegisterActivity" />
+        <activity android:name=".presentation.register.Register2Activity" />
+        <activity android:name=".presentation.register.Register3Activity" />
+        <activity android:name=".presentation.send.SendActivity"></activity>
     </application>
 
 </manifest>
