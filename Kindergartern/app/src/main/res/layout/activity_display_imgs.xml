@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout>
 
+    <data>
+
+        <variable
+            name="clickHandler"
+            type="com.junbaole.kindergartern.presentation.send.DispalyImgClickHandler" />
+    </data>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
 
@@ -11,7 +21,8 @@
 
         <include
             android:id="@+id/title_bar"
-            layout="@layout/titlebar_layout" />
+            layout="@layout/titlebar_layout"
+            bind:clickHandler="@{clickHandler}" />
 
         <com.bigkoo.convenientbanner.ConvenientBanner xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/convenientBanner"
@@ -21,3 +32,4 @@
             app:canLoop="false" />
     </LinearLayout>
 </layout>
+

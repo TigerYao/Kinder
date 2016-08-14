@@ -5,21 +5,31 @@ import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.amap.api.services.weather.LocalWeatherLiveResult;
 import com.junbaole.kindergartern.R;
+import com.junbaole.kindergartern.data.utils.amaputils.AmapQueryUtils;
 import com.junbaole.kindergartern.databinding.FragmentHomeBinding;
+import com.junbaole.kindergartern.presentation.base.BaseActivity;
 import com.junbaole.kindergartern.presentation.base.BaseFragment;
 import com.junbaole.kindergartern.presentation.base.TitleBuilder;
+import com.junbaole.kindergartern.widget.ptr.PtrLayout;
+
+import org.greenrobot.eventbus.Subscribe;
+
+import java.util.Calendar;
+import java.util.TimeZone;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements PtrLayout.OnLoadMoreListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,10 +40,13 @@ public class HomeFragment extends BaseFragment {
     private String mParam2;
 
     private FragmentHomeBinding homeBinding;
-    private Activity mActivity;
+    private BaseActivity mActivity;
+    private RecorderAdapter mAdapter;
+    private int pageSize = 0;
 
     public HomeFragment() {
         // Required empty public constructor
+
     }
 
     /**
@@ -51,6 +64,7 @@ public class HomeFragment extends BaseFragment {
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+
         return fragment;
     }
 
@@ -67,13 +81,52 @@ public class HomeFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         homeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
+        homeBinding.contentList.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false));
+        mAdapter = new RecorderAdapter();
+        homeBinding.contentList.setAdapter(mAdapter);
         new TitleBuilder(homeBinding.titleBar).TitleBuilderLayout(false, true).TitleBuilderLable("宝宝日记", "", "").TitleBuilderRightItem(true, false).TitleBuilderImgReasours(-1, R.mipmap.icon_xiaoxi).build();
+        homeBinding.headerHome.setWeekday(getWeekDay());
+        homeBinding.swipeToLoadLayout.setRefreshEnabled(false);
+        homeBinding.swipeToLoadLayout.setOnLoadMoreListener(this);
         return homeBinding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        new AmapQueryUtils().queryWeather(mActivity);
+        mActivity.secondActionManager.getCommonts(mActivity.userInfo.id, 0,false);
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.mActivity = activity;
+        this.mActivity = (BaseActivity) activity;
+    }
+
+    @Subscribe
+    public void onWeatherCallBack(LocalWeatherLiveResult localWeatherLiveResult) {
+        homeBinding.setWeatherInfo(localWeatherLiveResult.getLiveResult());
+
+    }
+
+    @Subscribe
+    public void onDataRefresh() {
+
+    }
+
+    String weeks[] = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
+
+    private String getWeekDay() {
+        final Calendar c = Calendar.getInstance();
+        c.setTimeZone(TimeZone.getTimeZone("GMT+8:00"));
+        int mWay = c.get(Calendar.DAY_OF_WEEK);
+        return weeks[mWay - 1];
+    }
+
+    @Override
+    public void onLoadMore() {
+        mActivity.secondActionManager.getCommonts(mActivity.userInfo.id, pageSize,false);
+        pageSize += 1;
     }
 }

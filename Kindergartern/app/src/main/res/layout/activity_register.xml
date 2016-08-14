@@ -25,6 +25,7 @@
         tools:context="com.junbaole.kindergartern.presentation.register.RegisterActivity">
 
         <include
+            android:id="@+id/title_bar"
             layout="@layout/titlebar_layout"
             bind:clickHandler="@{clickHandler}" />
 

@@ -1,31 +1,62 @@
 package com.junbaole.kindergartern.presentation.base;
 
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
-import com.junbaole.kindergartern.R;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.junbaole.kindergartern.data.model.UserInfo;
+import com.junbaole.kindergartern.data.utils.activity.SkipActivityUtils;
+import com.junbaole.kindergartern.domain.ActionManager;
+import com.junbaole.kindergartern.domain.SendPhoneEvent;
+import com.junbaole.kindergartern.presentation.register.RealInfoActivity;
 
-import me.zhanghai.android.materialprogressbar.MaterialProgressBar;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 
 public class BaseActivity extends AppCompatActivity {
 
+    public ActionManager actionManager,secondActionManager;
+    public UserInfo userInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //透明状态栏
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window window = getWindow();
-            // Translucent status bar
-            window.setFlags(
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        EventBus.getDefault().register(this);
+        actionManager = ActionManager.getInstance(this);
+        secondActionManager = ActionManager.getSencondIntent(this);
+        userInfo = ((BaseApplication)getApplication()).getUserInfo();
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe
+    public void onMainEvent(final SendPhoneEvent obje) {
+        if (obje.type == 5) {
+            finish();
+        } else if (obje.type == 6) {
+            new MaterialDialog.Builder(this).content("你已经与宝贝的老师成为好友了，现在让我们一起关注宝贝在幼儿园的表现吧").show();
+//            .negativeText("确定").positiveText("取消").callback(new MaterialDialog.ButtonCallback() {
+//                @Override
+//                public void onNegative(MaterialDialog dialog) {
+//                    super.onNegative(dialog);
+//                    Intent intent = new Intent(getBaseContext(), RealInfoActivity.class);
+//                    intent.putExtra("phone_num", obje.successMsg);
+//                    SkipActivityUtils.startActivity(BaseActivity.this, null, "", intent);
+//                    dialog.dismiss();
+//                }
+//
+//                @Override
+//                public void onPositive(MaterialDialog dialog) {
+//                    super.onPositive(dialog);
+//                    dialog.dismiss();
+//                }
+//            }).show();
         }
     }
 

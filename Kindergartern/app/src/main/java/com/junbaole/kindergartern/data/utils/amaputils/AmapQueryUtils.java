@@ -11,6 +11,8 @@ import com.amap.api.services.weather.WeatherSearch;
 import com.amap.api.services.weather.WeatherSearchQuery;
 import com.junbaole.kindergartern.data.utils.activity.AppInfo;
 
+import org.greenrobot.eventbus.EventBus;
+
 /**
  * Created by yaohu on 16/7/26.
  */
@@ -35,7 +37,7 @@ public class AmapQueryUtils implements PoiSearch.OnPoiSearchListener, WeatherSea
 
     @Override
     public void onPoiSearched(PoiResult poiResult, int i) {
-
+        EventBus.getDefault().post(poiResult);
     }
 
     @Override
@@ -45,7 +47,8 @@ public class AmapQueryUtils implements PoiSearch.OnPoiSearchListener, WeatherSea
 
     @Override
     public void onWeatherLiveSearched(LocalWeatherLiveResult localWeatherLiveResult, int i) {
-
+        if (localWeatherLiveResult != null)
+            EventBus.getDefault().post(localWeatherLiveResult);
     }
 
     @Override

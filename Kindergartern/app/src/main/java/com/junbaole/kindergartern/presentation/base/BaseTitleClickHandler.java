@@ -10,9 +10,9 @@ import com.junbaole.kindergartern.data.utils.activity.SkipActivityUtils;
  */
 public class BaseTitleClickHandler {
 
-    protected Activity mActivity;
+    protected BaseActivity mActivity;
 
-    public BaseTitleClickHandler(Activity mActivity) {
+    public BaseTitleClickHandler(BaseActivity mActivity) {
         this.mActivity = mActivity;
     }
 
@@ -23,5 +23,11 @@ public class BaseTitleClickHandler {
     public void onClickForgetPsw(View view) {
 
     }
+
+    public void onClickRightImg(View view){
+
+    }
+
+    public void onClickLeftText(View view){}
 
 }

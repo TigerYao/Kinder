@@ -18,25 +18,31 @@ public abstract class ActionsheetHelper {
     public Object mObj;
 
     public ActionsheetHelper(Context ctx, String title, String... items) {
+
         this.actionSheetDialog = new ActionSheetDialog(ctx).builder();
         if (!StringUtils.isBlank(title)) {
             actionSheetDialog.setTitle(title);
         }
         actionSheetDialog.setCancelable(true).setCanceledOnTouchOutside(true);
         for (final String string : items) {
-            actionSheetDialog.addSheetItem(string, ActionSheetDialog.SheetItemColor.BLACK, new ActionSheetDialog.OnSheetItemClickListener() {
+            actionSheetDialog.addSheetItem(string, null, new ActionSheetDialog.OnSheetItemClickListener() {
                 @Override
                 public void onClick(int which) {
                     ActionSheetEvent sheetEvent = new ActionSheetEvent(string);
+                    sheetEvent.object = mObj;
+
                     EventBus.getDefault().post(sheetEvent);
                 }
             });
         }
-
+        actionSheetDialog.setSheetItems();
     }
 
 
-    public abstract void showDialog(Object obje);
+    public void showDialog(Object obje) {
+        this.mObj = obje;
+        actionSheetDialog.show();
+    }
 
 
 }

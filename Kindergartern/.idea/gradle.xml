@@ -8,17 +8,23 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/android-volley" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/convenientbanner" />
+            <option value="$PROJECT_DIR$/presentation" />
+            <option value="$PROJECT_DIR$/sdk" />
+            <option value="$PROJECT_DIR$/sharelibrary" />
+            <option value="$PROJECT_DIR$/tlslibrary" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/android-volley" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/convenientbanner" />
+            <option value="$PROJECT_DIR$/presentation" />
+            <option value="$PROJECT_DIR$/sdk" />
+            <option value="$PROJECT_DIR$/sharelibrary" />
+            <option value="$PROJECT_DIR$/tlslibrary" />
           </set>
         </option>
       </GradleProjectSettings>

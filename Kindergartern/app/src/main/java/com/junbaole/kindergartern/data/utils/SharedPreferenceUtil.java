@@ -4,9 +4,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
+import com.junbaole.kindergartern.data.model.UserInfo;
+
 public class SharedPreferenceUtil {
 
     private static final String FILE_NAME = "liangrenwang";
+
 
     public static void putString(Context mContext, String key, String value) {
         if (null == mContext || TextUtils.isEmpty(key)) {
@@ -70,6 +73,27 @@ public class SharedPreferenceUtil {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(key, value);
         apply(editor);
+    }
+
+    public static void putUserInfo(Context mContext,UserInfo userInfo){
+        if (null == mContext || userInfo==null) {
+            return;
+        }
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("user_id", userInfo.id);
+        editor.putString("user_name", userInfo.name);
+        editor.putString("user_mobile", userInfo.phoneNum);
+        apply(editor);
+    }
+
+    public static UserInfo getUserInfo(Context ctx){
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        UserInfo userInfo = new UserInfo();
+        userInfo.id = sharedPreferences.getInt("user_id", -1);
+        userInfo.name = sharedPreferences.getString("user_name", "");
+        userInfo.phoneNum = sharedPreferences.getString("user_mobile", "");
+        return userInfo;
     }
 
     public static boolean getBoolean(Context mContext, String key, boolean defaultValue) {

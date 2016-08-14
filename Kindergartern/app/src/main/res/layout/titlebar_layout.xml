@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <data>
 
         <variable
@@ -45,6 +44,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="12dp"
                 android:minWidth="50dp"
+                android:gravity="center"
+                android:onClick="@{clickHandler.onClickLeftText}"
                 android:text="@{builder.leftLable}"
                 android:textColor="@color/white"
                 android:textSize="@dimen/s_size14"
@@ -58,7 +59,8 @@
             android:layout_centerInParent="true"
             android:text="@{builder.mTitle}"
             android:textColor="@color/white"
-            android:textSize="@dimen/s_size14" />
+            android:textSize="18sp" />
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -73,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|center_vertical"
                 android:minWidth="50dp"
-                android:onClick="@{clickHandler.onClickReturn}"
+                android:onClick="@{clickHandler.onClickRightImg}"
                 android:scaleType="center"
                 android:visibility="@{builder.isVisibleRightImg?View.VISIBLE:View.GONE}" />
 

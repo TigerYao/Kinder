@@ -3,9 +3,9 @@
 buildscript {
     repositories {
         jcenter()
-        maven {
-            url "http://mvn.leancloud.cn/nexus/content/repositories/releases"
-        }
+//        maven {
+//            url "http://mvn.leancloud.cn/nexus/content/repositories/releases"
+//        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.1.0'
@@ -18,13 +18,9 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven { url "https://jitpack.io" }
-        maven {
-            url "http://mvn.leancloud.cn/nexus/content/repositories/releases"
-        }
+        mavenCentral()
+//        maven {
+//            url "http://mvn.leancloud.cn/nexus/content/repositories/releases"
+//        }
     }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }

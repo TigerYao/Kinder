@@ -109,7 +109,7 @@ public class ActionSheetDialog {
     }
 
     /** 设置条目布局 */
-    private void setSheetItems() {
+    public void setSheetItems() {
         if (sheetItemList == null || sheetItemList.size() <= 0) {
             return;
         }
@@ -165,7 +165,8 @@ public class ActionSheetDialog {
 
             // 字体颜色
             if (color == null) {
-                textView.setTextColor(Color.parseColor(SheetItemColor.Blue
+                textView.setTextColor(Color.parseColor(SheetItemColor.BLACK
+
                         .getName()));
             } else {
                 textView.setTextColor(Color.parseColor(color.getName()));
@@ -191,7 +192,6 @@ public class ActionSheetDialog {
     }
 
     public void show() {
-        setSheetItems();
         dialog.show();
     }
 
@@ -213,8 +213,7 @@ public class ActionSheetDialog {
     }
 
     public enum SheetItemColor {
-        Blue("#037BFF"), Red("#FD4A2E"),BLACK("#000");
-
+        Blue("#037BFF"), Red("#FD4A2E"),BLACK("#000000");
         private String name;
 
         private SheetItemColor(String name) {

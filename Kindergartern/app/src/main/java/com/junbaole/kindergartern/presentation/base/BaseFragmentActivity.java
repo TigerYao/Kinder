@@ -10,6 +10,8 @@ import com.junbaole.kindergartern.data.utils.activity.SkipActivityUtils;
  */
 public abstract class BaseFragmentActivity extends BaseActivity {
 
+    public BaseFragment currentFragment;
+
     public abstract int getFragmentContentId();
 
     protected abstract BaseFragment getFirstFragment();
@@ -36,9 +38,15 @@ public abstract class BaseFragmentActivity extends BaseActivity {
     }
 
     public void addFragment(BaseFragment fragment) {
-        if (fragment != null) {
-            getSupportFragmentManager().beginTransaction().replace(getFragmentContentId(), fragment, fragment.getClass().getSimpleName()).commitAllowingStateLoss();
+
+        if (fragment != null && !fragment.isAdded()) {
+            getSupportFragmentManager().beginTransaction().add(getFragmentContentId(), fragment, fragment.getClass().getSimpleName()).commitAllowingStateLoss();
         }
+        if (currentFragment == null || currentFragment != fragment) {
+            getSupportFragmentManager().beginTransaction().show(fragment).commit();
+            currentFragment = fragment;
+        }
+
     }
 
     public void removeFragment() {

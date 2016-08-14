@@ -84,7 +84,7 @@ public class TitleBuilder {
     }
 
     private void setTextColor(TextView textView, int textColor) {
-        if (textColor != -1)
+        if (textColor>0)
             textView.setTextColor(mTitlebarLayoutBinding.getRoot().getResources().getColor(textColor));
     }
 }

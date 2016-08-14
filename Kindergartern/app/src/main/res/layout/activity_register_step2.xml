@@ -10,6 +10,9 @@
         <variable
             name="isRight"
             type="boolean"/>
+        <variable
+            name="phoneNum"
+            type="String"/>
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -19,13 +22,14 @@
         android:orientation="vertical">
         <include
             layout="@layout/titlebar_layout"
+            android:id="@+id/title_bar"
             bind:clickHandler="@{clickHandler}" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="17dp"
             android:padding="12dp"
-            android:text="请输入四位验证码"
+            android:text="请输入验证码"
             android:textColor="@color/s_color16"
             android:textSize="25sp" />
         <TextView
@@ -33,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="28dp"
             android:padding="12dp"
-            android:text="我们向13299876787发送了一个验证码，请在输入框输入"
+            android:text="@{phoneNum}"
             android:textColor="@color/s_color16"
             android:textSize="16sp" />
         <TextView
@@ -41,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:padding="12dp"
-            android:text="4位验证码"
+            android:text="验证码"
             android:textColor="@color/s_color16"
             android:textSize="16sp" />
         <LinearLayout
@@ -64,7 +68,7 @@
                 android:minHeight="40dp"
                 android:padding="5dp"
                 android:singleLine="true"
-                android:maxLength="4"
+                android:maxLength="8"
                 android:textColor="@color/s_color16"
                 android:textColorHint="#2d4833"
                 android:textSize="16sp" />

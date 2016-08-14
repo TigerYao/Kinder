@@ -8,4 +8,7 @@
     <item name="restart_preview" type="id" />
     <item name="return_scan_result" type="id" />
     <item name="decode_error" type="id" />
+    <item name="sectionTextView" type="id" />
+    <item name="infoRowContainer" type="id" />
+    <item name="nameView" type="id" />
 </resources>

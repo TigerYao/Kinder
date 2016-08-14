@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.junbaole.kindergartern.data.utils.activity.SkipActivityUtils;
 import com.junbaole.kindergartern.presentation.login.LoginActivity;
+import com.junbaole.kindergartern.presentation.main.MainActivity;
 import com.junbaole.kindergartern.presentation.register.RegisterActivity;
 
 /**
@@ -23,5 +24,6 @@ public class LauncherClickHandler {
     }
 
     public void onClickVister(View view) {
+        SkipActivityUtils.startActivity(launcherActivity,view,"",new Intent(launcherActivity, MainActivity.class));
     }
 }

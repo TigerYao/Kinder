@@ -11,7 +11,7 @@ import com.junbaole.kindergartern.data.utils.StringUtils;
 public class AppInfo {
 
     private static String mCityCode;
-    private static String mCityName;
+    private static String mCityName = "北京市";
 
     public static void setCityCode(Context ctx, String cityCode) {
         if (StringUtils.isBlank(cityCode)) {

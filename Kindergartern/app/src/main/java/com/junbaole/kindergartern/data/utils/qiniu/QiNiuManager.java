@@ -1,7 +1,13 @@
 package com.junbaole.kindergartern.data.utils.qiniu;
 
+import android.util.Log;
+
+import com.qiniu.android.http.ResponseInfo;
 import com.qiniu.android.storage.Configuration;
+import com.qiniu.android.storage.UpCompletionHandler;
 import com.qiniu.android.storage.UploadManager;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -25,14 +31,17 @@ public class QiNiuManager {
         return LazyManagerHolder.instance;
     }
 
-    public void upLoadImgs(ArrayList<String> imgsPath) {
-        for (String imgPath : imgsPath) {
-            uploadSingleImg(imgPath);
-        }
-    }
 
-    public void uploadSingleImg(String imgPath) {
 
+    public void uploadSingleImg(String imgPath,String token) {
+        uploadManager.put(imgPath, null, token, new UpCompletionHandler() {
+            @Override
+            public void complete(String key, ResponseInfo info, JSONObject response) {
+                if(info.isOK()){
+                    Log.i("tag==",response.toString());
+                }
+            }
+        },null);
     }
 
     private void uploadImg() {
@@ -40,6 +49,6 @@ public class QiNiuManager {
 
     private String getToken() {
 
-        return null;
+        return "yaohu";
     }
 }
